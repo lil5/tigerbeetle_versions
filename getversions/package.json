@@ -1,0 +1,19 @@
+{
+  "name": "getversions",
+  "module": "main.ts",
+  "type": "module",
+  "scripts": {
+    "start": "bun run main.ts",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/compare-version": "^0.1.34"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "compare-version": "^0.1.2"
+  }
+}
