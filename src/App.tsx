@@ -4,10 +4,7 @@ import output from "./output.json";
 type UpgradeItem = (typeof output)[0] & {
   color1?: string;
   color2?: string;
-  color3?: string;
 };
-
-// #a991f7 #f6d860 #37cdbe
 
 function App() {
   const [version, setVersion] = useState("");
@@ -15,7 +12,6 @@ function App() {
     if (!version) return output;
     let nextV = version;
     const result: UpgradeItem[] = [...output];
-    // let foundLo = 0;
     for (let i = result.length - 1; i >= 0; i--) {
       const o = { ...result[i] };
       if (o.v == version) {
@@ -31,15 +27,6 @@ function App() {
           nextV = o.hi;
         }
       }
-      // if (o.u && foundLo == 0) {
-      //   foundLo = 1;
-      // }
-      // if (foundLo == 1) {
-      //   o.color3 = "#a991f7";
-      // }
-      // if (o.v == version) {
-      //   foundLo = 2;
-      // }
       result[i] = o;
     }
     return result;
@@ -75,11 +62,38 @@ function App() {
               </td>
               <td>{item.u}</td>
               <td style={styleV(item.color2)}>{item.hi}</td>
-              <td style={styleV(item.color3)}>{item.c}</td>
+              <td>{item.c}</td>
             </tr>
           ))}
         </tbody>
       </table>
+
+      <h1>
+        Tigerbeetle Versions Tool <sup>(unofficial)</sup>
+      </h1>
+      <hr />
+      <center>
+        <p>
+          <a
+            target="_blank"
+            href="https://github.com/tigerbeetle/tigerbeetle/releases"
+          >
+            Tigerbeetle Releases
+          </a>
+          {" | "}
+          <a
+            target="_blank"
+            href="https://github.com/lil5/tigerbeetle_versions"
+          >
+            Tool GitHub
+          </a>
+        </p>
+        Lucian I. Last{" "}
+        <span style={{ display: "inline-block", transform: "scaleX(-1)" }}>
+          &copy;
+        </span>
+        {" Apache 2.0"}
+      </center>
     </>
   );
 }
