@@ -10,7 +10,8 @@ const releases: [{ tagName: string }] =
 const reOldClient = /Oldest supported client version: (\d+\.\d+\.\d+)/;
 const reOldUpgrade = /Oldest upgradable replica version: (\d+\.\d+\.\d+)/;
 
-for (const release of releases) {
+for (let i = releases.length - 1; i >= 0; i--) {
+  const release = releases[i];
   // ignore if already exists
   if (list.find((item) => item.v === release.tagName)) continue;
 
@@ -19,7 +20,7 @@ for (const release of releases) {
 
   const c = reOldClient.exec(releaseView.body)?.at(1);
   const u = reOldUpgrade.exec(releaseView.body)?.at(1);
-  list.push({ v: release.tagName, c, u });
+  list.unshift({ v: release.tagName, c, u });
 }
 
 // generate
