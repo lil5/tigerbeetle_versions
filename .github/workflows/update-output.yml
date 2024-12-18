@@ -3,8 +3,7 @@ name: Update Output
 on: workflow_dispatch
 
 permissions:
-  contents: read
-  pull-requests: write
+  contents: write
 
 defaults:
   run:
@@ -33,4 +32,6 @@ jobs:
           git add getversions/output.json
           git commit -m "Update output"
       - name: Push changes
-        run: git push
+        run: |
+          git remote set-url origin https://github-actions:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git push origin main
