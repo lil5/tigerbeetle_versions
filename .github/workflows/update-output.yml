@@ -1,6 +1,9 @@
 name: Update Output
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "5 4 5,19 * *"
 
 permissions:
   contents: write
