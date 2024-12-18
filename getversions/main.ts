@@ -24,5 +24,5 @@ for (const release of releases) {
 
 // generate
 list = CalculateHi(list);
-const data = JSON.stringify(list);
+const data = JSON.stringify(list, null, " ");
 await Bun.write(f, data);
