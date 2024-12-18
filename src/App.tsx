@@ -15,13 +15,14 @@ function App() {
     if (!version) return output;
     let nextV = version;
     const result: UpgradeItem[] = [...output];
-    let foundLo = 0;
+    // let foundLo = 0;
     for (let i = result.length - 1; i >= 0; i--) {
       const o = { ...result[i] };
       if (o.v == version) {
         o.color1 = "#f6d860";
         if (o.v !== o.hi) {
           nextV = o.hi;
+          o.color2 = "#37cdbe";
         }
       }
       if (o.v == nextV) {
@@ -30,15 +31,15 @@ function App() {
           nextV = o.hi;
         }
       }
-      if (o.u && foundLo == 0) {
-        foundLo = 1;
-      }
-      if (foundLo == 1) {
-        o.color3 = "#a991f7";
-      }
-      if (o.v == version) {
-        foundLo = 2;
-      }
+      // if (o.u && foundLo == 0) {
+      //   foundLo = 1;
+      // }
+      // if (foundLo == 1) {
+      //   o.color3 = "#a991f7";
+      // }
+      // if (o.v == version) {
+      //   foundLo = 2;
+      // }
       result[i] = o;
     }
     return result;
