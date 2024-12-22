@@ -25,6 +25,8 @@ function App() {
         o.color2 = "#37cdbe";
         if (o.v !== o.hi) {
           nextV = o.hi;
+        } else {
+          o.color2 = "";
         }
       }
       result[i] = o;
@@ -67,33 +69,6 @@ function App() {
           ))}
         </tbody>
       </table>
-
-      <h1>
-        Tigerbeetle Versions Tool <sup>(unofficial)</sup>
-      </h1>
-      <hr />
-      <center>
-        <p>
-          <a
-            target="_blank"
-            href="https://github.com/tigerbeetle/tigerbeetle/releases"
-          >
-            Tigerbeetle Releases
-          </a>
-          {" | "}
-          <a
-            target="_blank"
-            href="https://github.com/lil5/tigerbeetle_versions"
-          >
-            Tool GitHub
-          </a>
-        </p>
-        Lucian I. Last{" "}
-        <span style={{ display: "inline-block", transform: "scaleX(-1)" }}>
-          &copy;
-        </span>
-        {" Apache 2.0"}
-      </center>
     </>
   );
 }
