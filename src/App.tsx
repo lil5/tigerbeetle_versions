@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState } from "preact/compat";
 import output from "./output.json";
 
 type UpgradeItem = (typeof output)[0] & {
