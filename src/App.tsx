@@ -57,6 +57,7 @@ function App() {
             <tr key={item.v}>
               <td
                 onMouseEnter={() => setVersion(item.v)}
+                onPointerEnter={() => setVersion(item.v)}
                 onMouseLeave={() => setVersion("")}
                 style={styleV(item.color1)}
               >
