@@ -41,3 +41,5 @@ jobs:
           git commit -m "Update output"
           git remote set-url origin https://github-actions:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push origin main
+      - name: Run pages action
+        run: gh workflow run pages.yml
