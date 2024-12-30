@@ -41,6 +41,7 @@ jobs:
           git remote set-url origin https://github-actions:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push origin main
       - name: Run pages action
+        if: ${{ env.GITHUB_IS_GIT_CLEAN != '0' }}
         run: gh workflow run pages.yml
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
