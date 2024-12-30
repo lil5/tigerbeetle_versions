@@ -7,9 +7,10 @@ type UpgradeItem = (typeof output)[0] & {
 };
 
 function App() {
-  const [version, setVersion] = useState("");
+  const [version, setVersion] = useState(() => window.location.hash.slice(1));
   const upgradePath: UpgradeItem[] = useMemo(() => {
     if (!version) return output;
+    window.history.replaceState(null, "", `#${version}`);
     let nextV = version;
     const result: UpgradeItem[] = [...output];
     for (let i = result.length - 1; i >= 0; i--) {
@@ -58,7 +59,6 @@ function App() {
               <td
                 onMouseEnter={() => setVersion(item.v)}
                 onPointerEnter={() => setVersion(item.v)}
-                onMouseLeave={() => setVersion("")}
                 style={styleV(item.color1)}
               >
                 {item.v}
