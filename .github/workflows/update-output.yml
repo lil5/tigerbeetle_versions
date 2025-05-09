@@ -3,7 +3,8 @@ name: Update Output
 on:
   workflow_dispatch:
   schedule:
-    - cron: "5 4 5,19 * *"
+    # https://crontab.guru/#5_4_*_*_2
+    - cron: "5 4 * * 2"
 
 permissions: write-all
 
